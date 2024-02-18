@@ -32,6 +32,16 @@ func main() {
 			fmt.Println("Executed sub cmd")
 		},
 	}
+
+	subCmdGenerate := &cobra.Command{
+		Use:   "generate:report",
+		Short: "Generate report",
+		Long:  "Generate report",
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("Executed sub cmd")
+		},
+	}
 	rootCmd.AddCommand(subCmd)
+	rootCmd.AddCommand(subCmdGenerate)
 	rootCmd.Execute()
 }
