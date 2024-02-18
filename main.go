@@ -2,6 +2,7 @@ package main
 
 import (
 	database "akozadaev/go_reports/db"
+	"akozadaev/go_reports/server"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -27,5 +28,6 @@ func main() {
 		panic("failed to connect database")
 	}
 	database.Migrate(db)
+	server.Start(db)
 
 }
