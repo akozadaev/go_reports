@@ -5,6 +5,7 @@ import (
 	database "akozadaev/go_reports/db/model"
 	"akozadaev/go_reports/db/report"
 	"akozadaev/go_reports/middleware"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	"net/http"
@@ -50,6 +51,7 @@ func generateData(context *gin.Context) {
 }
 
 func setReportTask(context *gin.Context) {
+	fmt.Println("call")
 	raw := &database.Report{
 		FileName:     "report",
 		DownloadLink: "http://report.csv",
@@ -60,11 +62,9 @@ func setReportTask(context *gin.Context) {
 }
 
 func RouteV1(h *Handler, router *gin.Engine) {
-
 	v1 := router.Group("v1")
 	var authService authentication.Authentication
 	authService = authentication.NewBasicAuth(h.authDB)
-
 	v1.Use(middleware.AuthenticationMiddleware(authService))
 	v1.Use()
 	{

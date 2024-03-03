@@ -20,6 +20,7 @@ type Account struct {
 	FirstName  string `json:"first_name,omitempty"`
 	LastName   string `json:"last_name,omitempty"`
 	MiddleName string `json:"middle_name,omitempty"`
+	Email      string `json:"email,omitempty"`
 	Password   string `json:"password,omitempty"`
 	AccountId  []AccountsRoles
 }

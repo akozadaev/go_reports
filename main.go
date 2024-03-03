@@ -85,7 +85,9 @@ func runApplication() {
 func newServer(lc fx.Lifecycle, cfg *config.Config) *gin.Engine {
 	gin.SetMode(gin.DebugMode)
 	r := gin.New()
-
+	r.NoRoute(func(c *gin.Context) {
+		c.JSON(404, gin.H{"code": "PAGE_NOT_FOUND", "message": "Page not found"})
+	})
 	r.Use(middleware.TimeoutMiddleware(cfg.ServerConfig.WriteTimeout))
 
 	srv := &http.Server{
