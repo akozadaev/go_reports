@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  readTimeout: 15s
+  writeTimeout: 15s
+  gracefulShutdown: 30s
+  host: "localhost"
+db:
+  dataSourceName: "reports_database.db"
+  pool:
+    maxOpen: 50
+    maxIdle: 20
+    maxLifetime: "5m"

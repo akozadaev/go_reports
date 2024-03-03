@@ -1,4 +1,4 @@
-package database
+package model
 
 import (
 	"encoding/json"
@@ -20,6 +20,7 @@ type Account struct {
 	FirstName  string `json:"first_name,omitempty"`
 	LastName   string `json:"last_name,omitempty"`
 	MiddleName string `json:"middle_name,omitempty"`
+	Password   string `json:"password,omitempty"`
 	AccountId  []AccountsRoles
 }
 
@@ -40,4 +41,9 @@ type Report struct {
 	FileName     string `json:"file_name,omitempty"`
 	DownloadLink string `json:"download_link,omitempty"`
 	Status       uint
+}
+
+type AuthUserRequest struct {
+	Username string
+	Password string
 }
